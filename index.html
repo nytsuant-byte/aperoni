@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aperoni | Drinks & Sharing Plates - Aalst</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Jouw basis styles + verbeteringen voor layout */
+        .reservation-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: flex-start;
+            margin-top: 30px;
+        }
+        .reservation-info { flex: 1; min-width: 300px; }
+        .reservation-container {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            color: #333;
+            text-align: left;
+        }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+        }
+        .btn-submit {
+            background-color: #000; color: #fff; border: none; padding: 12px 20px;
+            cursor: pointer; width: 100%; font-weight: 600; transition: 0.3s;
+        }
+        .btn-submit:hover { background-color: #333; }
+        .info-box {
+            background: #fff3cd; border: 1px solid #ffeeba; padding: 15px;
+            border-radius: 4px; margin-bottom: 20px; font-size: 0.9em;
+        }
+
+        /* FIX VOOR LEESBAARHEID CONTACT */
+        .contact-overlay {
+            background: rgba(0, 0, 0, 0.7); /* Donker filter over foto */
+            padding: 80px 0;
+            color: white !important;
+        }
+        .contact-overlay p, .contact-overlay a {
+            color: white !important;
+            text-decoration: none;
+        }
+        .contact-overlay i { color: #d4a373; margin-right: 10px; }
+        
+        .social-btn {
+            border: 1px solid white;
+            color: white !important;
+            padding: 10px 20px;
+            margin: 5px;
+            display: inline-block;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .social-btn:hover { background: white; color: black !important; }
+
+        footer.bottom-bar {
+            background: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="#" class="logo-link">
+                <img src="images/logo-lang2.png" alt="Aperoni Logo" class="header-logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reservation">Reserveren</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Sfeer</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content container">
+            <img src="images/logo.png" alt="Aperoni" class="hero-logo">
+            <div class="hero-divider"></div>
+            <h1>Aperoni</h1>
+            <p>de trendy plek voor sfeer, gezelligheid,<br>drinks & sharing plates</p>
+            <a href="#reservation" class="btn btn-hero">Tafel Reserveren</a>
+        </div>
+    </header>
+
+    <section id="reservation" class="section">
+        <div class="container">
+            <h2 class="text-center">Reserveren</h2>
+            
+            <div class="reservation-flex">
+                <div class="reservation-info">
+                    <p>Wil je zeker zijn van een plekje voor een grotere groep? Bij Aperoni ben je van harte welkom!</p>
+                    <div class="info-box">
+                        <p><strong>De regels:</strong></p>
+                        <ul style="padding-left: 20px;">
+                            <li>Reserveren kan vanaf <strong>6 personen</strong>.</li>
+                            <li>Kleinere groepen: loop gewoon binnen, er is steeds plaats!</li>
+                            <li>Op het <strong>buitenterras</strong> kan er niet gereserveerd worden.</li>
+                        </ul>
+                    </div>
+                    <p>Vragen? Mail ons op <a href="mailto:info@aperoni.be">info@aperoni.be</a></p>
+                </div>
+
+                <div class="reservation-container">
+                    <form action="https://formspree.io/f/info@aperoni.be" method="POST">
+                        <div class="form-group">
+                            <label>Naam</label>
+                            <input type="text" name="naam" placeholder="Jouw naam" required>
+                        </div>
+                        <div class="form-group">
+                            <label>E-mailadres</label>
+                            <input type="email" name="_replyto" placeholder="naam@voorbeeld.be" required>
+                        </div>
+                        <div class="form-group" style="display: flex; gap: 10px;">
+                            <div style="flex: 1;">
+                                <label>Personen</label>
+                                <input type="number" name="personen" min="6" value="6" required>
+                            </div>
+                            <div style="flex: 1;">
+                                <label>Datum & Tijd</label>
+                                <input type="datetime-local" name="datum_tijd" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Bericht</label>
+                            <textarea name="bericht" rows="3" placeholder="Extra info..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Aanvraag versturen</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section bg-light">
+        <div class="container about-grid">
+            <div class="text-block">
+                <h2>Welkom bij Aperoni</h2>
+                <p>Wij heten jullie van harte welkom in <strong>Aperoni</strong>, dé hippe plek voor gezelligheid, sfeer, drinks & sharing plates, in 't hart van Aalst.</p>
+                <p>Team Aperoni staat 7 op 7 voor jullie klaar van <strong>10:00 tot 01:00</strong>.</p>
+                <p>Tot gauw!<br><strong>Joris, Maggie en Nicolas</strong></p>
+                
+                <div class="jobs-card">
+                    <p><strong>Kom bij ons topteam!</strong><br>Solliciteer via <a href="mailto:info@aperoni.be">info@aperoni.be</a></p>
+                </div>
+            </div>
+            <div class="image-block">
+                <img src="images/beeld4.jpg" alt="Aperoni Hapjes">
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="section bg-dark text-light">
+        <div class="container">
+            <h2 class="text-center">Onze Kaart</h2>
+            <div class="menu-wrapper">
+                <img src="images/menukaart.jpg" alt="Menukaart Deel 1" class="responsive-menu">
+                <img src="images/menukaart2.jpg" alt="Menukaart Deel 2" class="responsive-menu">
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section">
+        <div class="container">
+            <h2 class="text-center">De Aperoni Sfeer</h2>
+            <div class="gallery-grid">
+                <img src="images/beeld2.jpg" alt="Cocktail">
+                <img src="images/beeld1_335.jpg" alt="Warme dranken">
+                <img src="images/beeld2_330.jpg" alt="Verse thee">
+                <img src="images/beeld3_325.jpg" alt="Wijn selectie">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-parallax" style="background-image: url('images/achter-slider3.jpg');">
+        <div class="contact-overlay">
+            <div class="container text-center">
+                <h2>Contact</h2>
+                <p class="loc-text"><i class="fas fa-map-marker-alt"></i> Nieuwstraat 6, 9300 Aalst</p>
+                <p class="mail-text"><i class="fas fa-envelope"></i> <a href="mailto:info@aperoni.be">info@aperoni.be</a></p>
+                <p class="clock-text"><i class="fas fa-clock"></i> Open 7/7: 10:00 - 01:00</p>
+                
+                <div class="socials">
+                    <a href="https://www.facebook.com/AperoniAalst/" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="https://www.instagram.com/aperoni_aalst/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bottom-bar">
+        <div class="container">
+            <p>&copy; 2026 Aperoni Aalst | <a href="mailto:info@aperoni.be" style="color: #d4a373; text-decoration: none;">info@aperoni.be</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
